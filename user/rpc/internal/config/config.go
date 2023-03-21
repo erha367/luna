@@ -3,21 +3,14 @@ package config
 import (
 	"github.com/zeromicro/go-zero/core/stores/cache"
 	"github.com/zeromicro/go-zero/core/trace"
-	"github.com/zeromicro/go-zero/rest"
+	"github.com/zeromicro/go-zero/zrpc"
 )
 
 type Config struct {
-	rest.RestConf
-	//mysql
+	zrpc.RpcServerConf
 	Mysql struct {
 		DataSource string
 	}
-	//redis
 	CacheRedis cache.CacheConf
-	//auth
-	Auth struct {
-		AccessSecret string
-		AccessExpire int64
-	}
-	Telemetry trace.Config
+	Telemetry  trace.Config
 }
