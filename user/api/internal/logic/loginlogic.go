@@ -47,7 +47,7 @@ func (l *LoginLogic) Login(req *types.LoginReq) (resp *types.LoginReply, err err
 	default:
 		return nil, err
 	}
-	if userInfo.UserPass != req.Password {
+	if userInfo.Password != req.Password {
 		return nil, errors.New("用户密码不正确")
 	}
 	/*-	登录成功 -*/
@@ -61,7 +61,7 @@ func (l *LoginLogic) Login(req *types.LoginReq) (resp *types.LoginReply, err err
 	// ---end---
 	return &types.LoginReply{
 		Id:           userInfo.Id,
-		Name:         userInfo.UserNickname,
+		Name:         userInfo.Nickname,
 		Gender:       "",
 		AccessToken:  jwtToken,
 		AccessExpire: now + accessExpire,
