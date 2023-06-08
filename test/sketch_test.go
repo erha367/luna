@@ -8,7 +8,6 @@ import (
 	"image/draw"
 	"image/jpeg"
 	"image/png"
-	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
@@ -20,12 +19,12 @@ func TestSketch(t *testing.T) {
 	AddLines("/Users/yangsen/Downloads/cc.jpeg", 1)
 }
 
-func AddLines(fileUrl string, lColor uint) {
+func AddLines(fileUrl string, lColor int) {
 	// 0 - red
 	// 1 - green
 	// 2 - purple
 	lineColors := []color.RGBA{{255, 0, 0, 255}, {95, 174, 227, 255}, {75, 0, 130, 255}}
-	if lColor > uint(len(lineColors)) {
+	if lColor > len(lineColors) {
 		log.Println(`color number must be less than 3`)
 		return
 	}
@@ -145,7 +144,7 @@ func abs(x int) int {
 
 func TestPngSketch(t *testing.T) {
 	// 读取PNG数据
-	pngData, err := ioutil.ReadFile("/Users/yangsen/Downloads/wx12.png")
+	pngData, err := os.ReadFile("/Users/yangsen/Downloads/wx12.png")
 	if err != nil {
 		fmt.Println("读取PNG数据失败：", err)
 		return
