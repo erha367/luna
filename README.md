@@ -1,4 +1,4 @@
-# luna 基于go-zero开发的web框架
+# luna 基于go-zero开发的web微服务体系框架
 ## 环境准备
 ```api
 (base) yangsen@bogon:~/codes/luna(main⚡) » goctl -v
